@@ -1,0 +1,16 @@
+{
+  "name": "alexeevdv/subsub-client-bundle",
+  "description": "Symfony bundle for alexeevdv/sumsub-client",
+  "type": "symfony-bundle",
+  "autoload": {
+    "psr-4": {
+      "alexeevdv\\Symfony\\SumSub\\": "src"
+    }
+  },
+  "require": {
+    "symfony/framework-bundle": "^4.3 || ^5.0",
+    "alexeevdv/sumsub-client": "^0.1.0",
+    "http-interop/http-factory-guzzle": "^1.0",
+    "ricardofiorani/guzzle-psr18-adapter": "^1.0"
+  }
+}

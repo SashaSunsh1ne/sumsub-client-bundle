@@ -1,0 +1,32 @@
+services:
+
+  _defaults:
+    public: false
+    autowire: false
+    autoconfigure: false
+
+  sumsub_client.psr_17_request_factory:
+    class: Http\Factory\Guzzle\RequestFactory
+
+  sumsub_client.psr_18_http_client:
+    class: RicardoFiorani\GuzzlePsr18Adapter\Client
+
+  alexeevdv\SumSub\Request\RequestSignerInterface:
+    public: true
+    alias: '@alexeevdv\SumSub\Request\RequestSigner'
+
+  alexeevdv\SumSub\Request\RequestSigner:
+    arguments:
+      $appToken: '%sumsub_client.app_token%'
+      $secretKey: '%sumsub_client.secret_key%'
+
+  alexeevdv\SumSub\ClientInterface:
+    public: true
+    alias: '@alexeevdv\SumSub\Client'
+
+  alexeevdv\SumSub\Client:
+    arguments:
+      $httpClient:  '@sumsub_client.psr_18_http_client'
+      $requestFactory: '@sumsub_client.psr_17_request_factory'
+      $requestSigner: '@alexeevdv\SumSub\Request\RequestSignerInterface'
+      $baseUrl: '%sumsub_client.base_uri%'
