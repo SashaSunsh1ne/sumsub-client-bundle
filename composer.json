@@ -2,6 +2,7 @@
   "name": "alexeevdv/subsub-client-bundle",
   "description": "Symfony bundle for alexeevdv/sumsub-client",
   "type": "symfony-bundle",
+  "license": "MIT",
   "autoload": {
     "psr-4": {
       "alexeevdv\\Symfony\\SumSub\\": "src"
