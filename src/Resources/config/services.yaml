@@ -13,18 +13,20 @@ services:
 
   alexeevdv\SumSub\Request\RequestSignerInterface:
     public: true
-    alias: '@alexeevdv\SumSub\Request\RequestSigner'
+    alias: 'sumsub_client.request_signer'
 
-  alexeevdv\SumSub\Request\RequestSigner:
+  sumsub_client.request_signer:
+    class: alexeevdv\SumSub\Request\RequestSigner
     arguments:
       $appToken: '%sumsub_client.app_token%'
       $secretKey: '%sumsub_client.secret_key%'
 
   alexeevdv\SumSub\ClientInterface:
     public: true
-    alias: '@alexeevdv\SumSub\Client'
+    alias: 'sumsub_client.client'
 
-  alexeevdv\SumSub\Client:
+  sumsub_client.client:
+    class: alexeevdv\SumSub\Client
     arguments:
       $httpClient:  '@sumsub_client.psr_18_http_client'
       $requestFactory: '@sumsub_client.psr_17_request_factory'
