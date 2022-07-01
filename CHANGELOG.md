@@ -1,6 +1,10 @@
 Under development
 -----------------
 
+0.4.0 (2022-07-01)
+-----------------
+- Update client dependency to ^0.4.0 (alexeevdv)
+
 0.3.0 (2022-07-01)
 -----------------
 - Update client dependency to ^0.3.0 (alexeevdv)
